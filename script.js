@@ -183,3 +183,25 @@ function updateCartCount() {
     cartCount.style.display='none'
   }
   }
+
+  const introVideo = document.getElementById('intro-video');
+const video = document.getElementById('video');
+const mainContent = document.getElementById('main-content');
+
+// Aseguramos que el contenido principal esté oculto al cargar
+mainContent.style.display = 'none';
+introVideo.style.opacity = 1;
+
+function fadeOut(element, duration = 500) {
+  element.style.transition = `opacity ${duration}ms ease`;
+  element.style.opacity = 0;
+  setTimeout(() => {
+    element.style.display = 'none';
+    mainContent.style.display = 'block';
+  }, duration);
+}
+
+// Cuando el video termina, hacemos fade-out y mostramos el contenido
+video.addEventListener('ended', () => {
+  fadeOut(introVideo, 500); // fade-out de 0.5 segundos
+});
