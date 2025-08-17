@@ -689,19 +689,26 @@ footer .socials a:hover {
   object-fit: cover;     /* mantiene proporción y cubre todo el contenedor */
 }
 
+#main-content{
+  opacity:0;
+  transition: opacity 0.5s ease;
+  display:none;
+}
 
 /* Para móviles y tablets */
 @media (max-width: 768px) {
   #intro-video {
-    width: 90%;      /* ocupa menos ancho */
-    height: 100%;    /* altura proporcional */
+    justify-content: center;    /* ocupa menos ancho */
+    align-items: center;    /* altura proporcional */
     background-color: #ffffff;
-    overflow: hidden;      /* recorta los bordes del video */
+    object-fit: contain;     /* recorta los bordes del video */
   }
 
   #intro-video video {
-    width: 100%;
+    width: 90%;
     height: auto;       /* mantiene proporción del video */
-    object-fit: cover;  /* cubre el contenedor pero respeta proporción */
+    object-fit: cover; 
+    max-height: 70%;
+    object-fit: contain; /* cubre el contenedor pero respeta proporción */
   }
 }

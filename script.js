@@ -188,20 +188,23 @@ function updateCartCount() {
 const video = document.getElementById('video');
 const mainContent = document.getElementById('main-content');
 
-// Aseguramos que el contenido principal esté oculto al cargar
-mainContent.style.display = 'none';
-introVideo.style.opacity = 1;
-
-function fadeOut(element, duration = 500) {
-  element.style.transition = `opacity ${duration}ms ease`;
-  element.style.opacity = 0;
+function endIntro() {
+  introVideo.style.opacity = 0;
   setTimeout(() => {
-    element.style.display = 'none';
+    introVideo.style.display = 'none';
     mainContent.style.display = 'block';
-  }, duration);
+    setTimeout(() => {
+      mainContent.style.opacity = 1;
+    }, 50);
+  }, 500);
 }
 
-// Cuando el video termina, hacemos fade-out y mostramos el contenido
-video.addEventListener('ended', () => {
-  fadeOut(introVideo, 500); // fade-out de 0.5 segundos
-});
+// Cuando termina el video
+video.addEventListener('ended', endIntro);
+
+// Fallback: forzar que se muestre en 3s por si falla autoplay en móvil
+setTimeout(() => {
+  if (introVideo.style.display !== 'none') {
+    endIntro();
+  }
+}, 3000);
