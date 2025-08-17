@@ -453,6 +453,137 @@ footer .socials a:hover {
   }
 }
 
+/* ====== SECCIÓN SERVICIOS ====== */
+
+/* Contenedor de tarjetas: 3 columnas, 2 filas */
+#servicios .card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  margin: 0 auto;
+}
+
+/* Tarjetas */
+#servicios .card {
+  position: relative;
+  width: 280px;
+  height: 400px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+/* Parte frontal y trasera */
+#servicios .card-front,
+#servicios .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  background-color: #fff;
+}
+
+/* Parte trasera */
+#servicios .card-back {
+  background-image: url("multimedia/cartatarot.png");
+  overflow: hidden;
+  opacity: 0.9;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  transform: rotateY(180deg);
+  gap: 12px;
+  border-radius: 12px;
+  
+}
+
+
+/* Flip */
+#servicios .card.flipped .card-front {
+  transform: rotateY(180deg);
+}
+#servicios .card.flipped .card-back {
+  transform: rotateY(0deg);
+}
+
+/* Imagen frontal */
+#servicios .card-front img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Texto frontal */
+#servicios .card-front h3,
+#servicios .card-front p,
+#servicios .card-front h4,
+#servicios .card-front h5,
+#servicios .card-front .price {
+  margin: 4px 0;
+  text-align: center;
+}
+
+/* Botones en la parte de atrás */
+#servicios .card-back button {
+  width: 80%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#servicios .card-back .btn-primary {
+  background-color: #FFD700;
+  color: black;
+}
+
+#servicios .card-back .btn-secondary {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+
+/* Hover en botones */
+#servicios .card-back button:hover {
+  opacity: 0.9;
+}
+
+/* ====== RESPONSIVE ====== */
+
+/* Tablets: 2 columnas */
+@media (max-width: 1024px) {
+  #servicios .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #servicios .card {
+    width: 230px;
+    height: 380px;
+  }
+}
+
+/* Móvil: 1 columna */
+@media (max-width: 768px) {
+  #servicios .card-container {
+    grid-template-columns: 1fr;
+  }
+  #servicios .card {
+    width: 90%;
+    height: 380px;
+  }
+}
+
 @media (max-width: 480px) {
   .hamburger{
     display: block;
@@ -509,4 +640,28 @@ footer .socials a:hover {
     width: 28px;
     height: 28px;
   }
+}
+
+/* Contador sobre el carrito */
+.cart-count {
+  position: absolute;
+  top: -12px;       /* Ajusta la posición vertical */
+  right: -12px;     /* Ajusta la posición horizontal */
+  background-color: red; /* Color del círculo */
+  color: white; 
+  padding: 2px 6px;         /* Color del número */
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;    /* Lo hace circular */
+  width: 18px;            /* Diámetro del círculo */
+  height: 18px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;  /* No interfiere con clicks */
+}
+
+/* El contenedor del carrito debe ser relativo para posicionar el contador */
+#cart-btn {
+  position: relative;
 }

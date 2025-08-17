@@ -24,7 +24,9 @@
           <li><a href="#sobremi">Sobre mí</a></li>
           <li><a href="#cursos">Cursos</a></li>
           <li><a href="#contacto">Contacto</a></li>
-          <li><a href="#" id="cart-btn"><i class="fas fa-shopping-cart"></i></a></li>
+          <li style="position: relative;"><a href="#" id="cart-btn"><i class="fas fa-shopping-cart"></i>
+          <span id="cart-count" class="cart-count" ></span>
+          </a></li>
         </ul>
         <!--iconos-->
         
@@ -47,6 +49,8 @@
     <h2>Servicios</h2>
     <div class="card-container">
       <div class="card">
+        <div class="card-front">
+        <!--Contenido frontal de card-->
         <div class="badge">NUEVO</div>
          <img src="multimedia/WhatsApp Image 2025-08-17 at 01.39.49.jpeg" alt="Servicio 2">
         <h3>Taller de Ceramica Esotérica</h3>
@@ -54,39 +58,80 @@
         <h4>Fechas: Sabado 30/08/2025-06/09/2025, 15hs</h4>
         <h5>DURACION:3HS</h5>
         <span class="price">$55000</span>
+        </div>
+        <!--Contenido de atras de card-->
+        <div class="card-back">
+          <button class="btn-primary" onclick="agregarAlCarrito(event)">Agregar al carrito</button>
+          <button class="btn-secondary" onclick="verCarrito(event)">Ver Carrito</button>
+        </div>
       
       </div>
       <div class="card">
+        <div class="card-front">
         <div class="badge promo">PROMO</div>
          <img src="multimedia/reiky.jpg" alt="Servicio 1">
         <h3>Taller de Meditacion Individual</h3>
         <p>Presencial o a Distancia</p>
         <span class="price">$25000</span>
       </div>
+        <!--Contenido de atras de card-->
+         <div class="card-back">
+          <button class="btn-primary" onclick="agregarAlCarrito(event)">Agregar al carrito</button>
+          <button class="btn-secondary" onclick="verCarrito(event)">Ver Carrito</button>
+        </div>
+      </div>
+
       <div class="card">
+         <div class="card-front">
         <img src="multimedia/meditacion grupal.jpg" alt="Servicio 3">
         <h3>Taller de Meditación Grupal</h3>
         <p>Presencial</p>
         <span class="price">$20000</span>
       </div>
+        <!--Contenido de atras de card-->
+         <div class="card-back">
+          <button class="btn-primary" onclick="agregarAlCarrito(event)">Agregar al carrito</button>
+          <button class="btn-secondary" onclick="verCarrito(event)">Ver Carrito</button>
+        </div>
+      </div>
       <div class="card">
+        <div class="card-front">
         <img src="multimedia/Péndulo-Hebreo-900x471.jpg" alt="Servicio 4">
         <h3>Pendulo Hebreo</h3>
         <p>A Distancia</p>
         <span class="price">$16000</span>
       </div>
+      <!--Contenido de atras de card-->
+         <div class="card-back">
+          <button class="btn-primary" onclick="agregarAlCarrito(event)">Agregar al carrito</button>
+          <button class="btn-secondary" onclick="verCarrito(event)">Ver Carrito</button>
+        </div>
+      </div>
       <div class="card">
+         <div class="card-front">
         <img src="multimedia/tarot-3864316_1280.jpg" alt="Servicio 5">
         <h3>Lectura de Tarot</h3>
         <p>A Distancia. Consultar por combo mensual</p>
         <span class="price">$15000</span>
       </div>
+      <!--Contenido de atras de card-->
+         <div class="card-back">
+          <button class="btn-primary" onclick="agregarAlCarrito(event)">Agregar al carrito</button>
+          <button class="btn-secondary" onclick="verCarrito(event)">Ver Carrito</button>
+        </div>
+      </div>
       <div class="card">
+         <div class="card-front">
         <img src="multimedia/a-book-2160539_1280.png" alt="Servicio 6">
         <h3>Registros Akashicos</h3>
         <p>A Distancia</p>
         <span class="price">$20000</span>
       </div>
+      <!--Contenido de atras de card-->
+         <div class="card-back">
+          <button class="btn-primary" onclick="agregarAlCarrito(event)">Agregar al carrito</button>
+          <button class="btn-secondary" onclick="verCarrito(event)">Ver Carrito</button>
+        </div>
     </div>
   </section>
 
@@ -184,7 +229,7 @@
     <div class="footer-bottom">
       <p>Ubicación: Turdera</p>
       <p>Email: Masereny@gmail.com</p>
-      <p>Todos los derechos reservados © 2025 - Producido por claudiagardenes.github.io</p>
+      <p>Todos los derechos reservados © 2025 - <span> Producido por <a href="https://claudiagardenes.github.io" style="text-decoration: none;">CGDesign</a></span></p>
     </div>
   </footer>
 
@@ -194,7 +239,7 @@
       <span class="close">&times;</span>
       <h2>Tu Carrito</h2>
       <ul id="cart-items"></ul>
-      <button id="checkout-btn" class="btn-primary">Comprar producto</button>
+      <button id="checkout-btn" class="btn-primary">Comprar Carrito</button>
     </div>
   </div>
 </body>

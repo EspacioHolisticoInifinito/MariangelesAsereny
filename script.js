@@ -22,14 +22,40 @@ const navLinks = document.querySelector('.nav-links');
 const closeMenu = document.querySelector('.close-menu');
 
 if (hamburger && navLinks && closeMenu) {
-  // Abrir menú
   hamburger.addEventListener('click', () => {
     navLinks.classList.add('show');
   });
 
-  // Cerrar menú
   closeMenu.addEventListener('click', () => {
     navLinks.classList.remove('show');
+  });
+}
+
+/* ==========================
+   CARRITO GLOBAL
+========================== */
+let cartItems = [];
+
+function addToCart(name, price) {
+  if (!name || !price) return;
+  cartItems.push({ name, price });
+  renderCart();
+}
+
+function renderCart() {
+  const cartItemsList = document.getElementById('cart-items');
+  if (!cartItemsList) return;
+
+  cartItemsList.innerHTML = '';
+  if (!cartItems || cartItems.length === 0) {
+    cartItemsList.innerHTML = '<li>El carrito está vacío</li>';
+    return;
+  }
+
+  cartItems.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item.name + ' - $' + item.price;
+    cartItemsList.appendChild(li);
   });
 }
 
@@ -41,10 +67,7 @@ if (hamburger && navLinks && closeMenu) {
   const cartModal = document.getElementById('cart-modal');
   const closeModal = document.querySelector('.modal .close');
   const checkoutBtn = document.getElementById('checkout-btn');
-  const cartItemsList = document.getElementById('cart-items');
-  if (!cartBtn || !cartModal || !closeModal || !checkoutBtn || !cartItemsList) return;
-
-  let cartItems = [];
+  if (!cartBtn || !cartModal || !closeModal || !checkoutBtn) return;
 
   cartBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -57,55 +80,51 @@ if (hamburger && navLinks && closeMenu) {
   });
 
   window.addEventListener('click', (e) => {
-    if (e.target === cartModal) {
-      cartModal.style.display = 'none';
-    }
+    if (e.target === cartModal) cartModal.style.display = 'none';
   });
 
   checkoutBtn.addEventListener('click', () => {
     alert('Redirigiendo a medios de pago...');
-    // Aquí se puede agregar la redirección real
+  });
+})();
+
+/* ==========================
+   TARJETAS SERVICIOS
+========================== */
+const serviceCards = document.querySelectorAll('#servicios .card');
+
+serviceCards.forEach(card => {
+  // Girar tarjeta al hacer clic
+  card.addEventListener('click', () => {
+    card.classList.toggle('flipped');
   });
 
-  function addToCart(name, price) {
-    if (!name || !price) return;
-    cartItems.push({ name, price });
-    renderCart();
-  }
+  // Botones dentro de la parte trasera
+  const addBtn = card.querySelector('.btn-primary');
+  const viewBtn = card.querySelector('.btn-secondary');
 
-  function renderCart() {
-    if (!cartItemsList) return;
-    cartItemsList.innerHTML = '';
-    if (!cartItems || cartItems.length === 0) {
-      cartItemsList.innerHTML = '<li>El carrito está vacío</li>';
-      return;
-    }
-
-    cartItems.forEach(item => {
-      const li = document.createElement('li');
-      const itemName = item.name || 'Producto';
-      const itemPrice = item.price || '0';
-      li.textContent = itemName + ' - $' + itemPrice;
-      cartItemsList.appendChild(li);
+  if (addBtn) {
+    addBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // no hace que la tarjeta gire
+      const name = card.querySelector('h3')?.textContent || 'Producto';
+      const price = card.querySelector('.price')?.textContent.replace('$','') || '0';
+      addToCart(name, price);
+      card.classList.remove('flipped'); // vuelve al frente
     });
   }
 
-  const addCartBtns = document.querySelectorAll('.add-cart');
-  if (addCartBtns && addCartBtns.length > 0) {
-    addCartBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const courseCard = btn.parentElement;
-        if (!courseCard) return;
-        const nameElem = courseCard.querySelector('h3');
-        const priceElem = courseCard.querySelector('.price');
-        if (!nameElem || !priceElem) return;
-        const name = nameElem.textContent || 'Curso';
-        const price = priceElem.textContent.replace('$','') || '0';
-        addToCart(name, price);
-      });
+  if (viewBtn) {
+    viewBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const name = card.querySelector('h3')?.textContent || 'Producto';
+      const price = card.querySelector('.price')?.textContent.replace('$','') || '0';
+      addToCart(name, price);
+      const cartModal = document.getElementById('cart-modal');
+      if (cartModal) cartModal.style.display = 'block';
+      card.classList.remove('flipped'); // vuelve al frente
     });
   }
-})();
+});
 
 /* ==========================
    SLIDER TESTIMONIOS
@@ -143,5 +162,24 @@ if (hamburger && navLinks && closeMenu) {
     if (index >= track.children.length) index = 0;
     updateSlider();
   }, 5000);
-})()
+})();
 
+//Contador de carrito
+function addToCart(name, price) {
+  if (!name || !price) return;
+  cartItems.push({ name, price });
+  renderCart();
+  updateCartCount(); // actualizamos el contador
+}
+
+function updateCartCount() {
+  const cartCount = document.getElementById('cart-count');
+  if (!cartCount) return;
+
+  if (cartItems.length > 0) {
+    cartCount.style.display = 'inline-flex';//se ve
+    cartCount.textContent = cartItems.length;
+  }else{
+    cartCount.style.display='none'
+  }
+  }
