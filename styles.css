@@ -1,0 +1,459 @@
+/* ==========================
+   VARIABLES DE COLOR
+========================== */
+:root {
+  --verde: rgb(107,190,172);
+  --rosa: rgb(231,202,203);
+  --texto: #333;
+  --blanco: #fff;
+}
+
+/* ==========================
+   RESET BÁSICO
+========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* ==========================
+   NAVBAR
+========================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.navbar.scrolled {
+  background-color: var(--blanco);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-left .logo {
+  height: 50px;
+}
+
+.nav-left .brand {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--texto);
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: var(--verde);
+}
+
+.hamburger {
+  display: block;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.nav-right .close-menu {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+  z-index: 1001;
+}
+
+.nav-links.show {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: rgb(107, 190, 172);
+  height: 100%;
+  width: 250px;
+  padding-top: 60px;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+/* Al mostrar menú, ocultamos hamburguesa y mostramos X */
+.nav-links.show + .hamburger {
+  display: none;
+}
+
+.nav-links.show ~ .close-menu {
+  display: block;
+}
+
+/* ==========================
+   HEADER
+========================== */
+#header {
+  height: 100vh;
+  width: 100%;
+  background-image: url('multimedia/butterflies-8048191_1280.jpg'); /* reemplaza con tu imagen */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--blanco);
+  padding: 0 20px;
+}
+
+#header h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+#header p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: var(--rosa);
+  color: var(--texto);
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: var(--verde);
+  color: var(--blanco);
+}
+
+/* ==========================
+   SECCIONES GENERALES
+========================== */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: var(--texto);
+}
+
+/* ==========================
+   TARJETAS SERVICIOS
+========================== */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+
+.card {
+  background-color: var(--blanco);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 15px;
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: rotateY(10deg);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.card .price {
+  font-weight: bold;
+  color: var(--verde);
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--verde);
+  color: var(--blanco);
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+}
+
+.badge.promo {
+  background-color: var(--rosa);
+}
+
+/* ==========================
+   SOBRE MI
+========================== */
+.about-container {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.about-text {
+  max-width: 600px;
+  text-align: justify;
+}
+
+/* ==========================
+   CURSOS
+========================== */
+.course-card {
+  background-color: var(--blanco);
+  border-radius: 10px;
+  padding: 15px;
+  max-width: 300px;
+  transition: transform 0.3s;
+}
+
+.course-card:hover {
+  transform: scale(1.05);
+}
+
+.course-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.course-card h3 {
+  margin-bottom: 10px;
+}
+
+.course-card p {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.course-card .price {
+  font-weight: bold;
+  color: var(--verde);
+}
+
+/* ==========================
+   TESTIMONIOS
+========================== */
+.testimonial-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.testimonial {
+  min-width: 300px;
+  margin: 0 10px;
+  background-color: var(--blanco);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.testimonial img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.testimonial h4 {
+  margin-bottom: 5px;
+}
+
+.testimonial p {
+  font-size: 0.9rem;
+}
+
+/* ==========================
+   FORMULARIO CONTACTO
+========================== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.contact-form button {
+  align-self: center;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+footer {
+  background-color: var(--verde);
+  color: var(--blanco);
+  padding: 20px;
+  text-align: center;
+}
+
+footer .socials a {
+  color: var(--blanco);
+  margin: 0 10px;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+footer .socials a:hover {
+  color: var(--rosa);
+}
+
+/* ==========================
+   MODAL CARRITO
+========================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: var(--blanco);
+  margin: 10% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+@media (max-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: var(--blanco);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+
+  .navbar .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  #header h1 {
+    font-size: 1.8rem;
+  }
+
+  #header p {
+    font-size: 1rem;
+  }
+
+  .course-card,
+  .card {
+    max-width: 100%;
+  }
+}
