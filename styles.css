@@ -82,7 +82,7 @@ a {
 }
 
 .hamburger {
-  display: block;
+  display: flex;
   font-size: 2rem;
   cursor: pointer;
   color: #000;
