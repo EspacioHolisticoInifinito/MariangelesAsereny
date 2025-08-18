@@ -1,432 +1,547 @@
-/* ===== RESET ===== */
+/* =================================
+   VARIABLES DE COLOR
+================================= */
+:root {
+  --primary-color: rgb(108,195,180);
+  --secondary-color: rgba(245,199,200,1);
+}
+
+/* =================================
+   RESET Y BASE
+================================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    overflow-x: hidden;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #000;
 }
 
-/* ===== NAVBAR ===== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =================================
+   NAVBAR
+================================= */
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 50px;
-    z-index: 1000;
-    transition: background-color 0.3s;
-}
-
-.navbar.scrolled {
-    background-color: rgba(108,195,180,1);
-}
-
-.nav-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.nav-left .logo {
-    width: 70px;
-    height: auto;
-}
-
-.brand {
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-}
-
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-}
-
-.hamburger {
-    display: none;
-    font-size: 28px;
-    color: white;
-    cursor: pointer;
-}
-
-/* ===== MODAL DE NAVEGACIÓN ===== */
-.nav-modal {
-  display: none;
-  position: fixed;
+  position: sticky;
   top: 0;
-  right: 0;
-  width: 200px;
-  height: auto;
-  background-color: rgba(108,195,180,0.95); /* Fondo semi-transparente */
-  display: none; /* Oculto por defecto */
-  flex-direction: column;
-  justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 1.5rem 1.5rem;
+  background: transparent;
+  transition: background 0.3s, padding 0.3s;
   z-index: 1000;
 }
 
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 
+.nav-left .logo {
+  width: 80px;
+  height: auto;
+}
+
+.nav-left .brand {
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: #000;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-links {
+  display: none;
+  list-style: none;
+  gap: 1rem;
+}
+
+.nav-links li a {
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: var(--primary-color);
+}
+
+.hamburger {
+  display: block;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #000;
+}
+
+/* Navbar scroll */
+.navbar.scrolled {
+  background: var(--primary-color);
+  padding: 1rem 1.5rem;
+}
+
+/* =================================
+   MODAL MÓVIL/TABLET
+================================= */
+.nav-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 380px;
+  background: rgba(255,255,255,0.95);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem;
+  border-radius: 10px 0 0 10px;
+  box-shadow: -4px 0 8px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+
+.nav-modal.active {
+  display: flex;
+}
 
 .nav-modal .close-menu {
-  position: absolute;
-  top: 10px;
-  right: 20px;
+  align-self: center;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.nav-modal .modal-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.nav-modal .modal-links li a {
+text-align: center;
+  font-size: 1.2rem;
+  color: #000;
+}
+
+/* =================================
+   HERO
+================================= */
+.hero {
+  text-align: center;
+  padding: 5rem 1.5rem;
+  background-image: url('multimedia/butterflies-8048191_1280.jpg'); /* ejemplo */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+.hero h1 {
   font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero .btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* =================================
+   SECCIÓN SERVICIOS
+================================= */
+#servicios {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background-color: #fff;
+}
+
+#servicios h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* Tarjetas Servicios */
+.card {
+  width: 100%;
+  max-width: 350px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* =================================
+   SOBRE MÍ
+================================= */
+#sobremi {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background-color: #fff;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.about-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* =================================
+   CURSOS
+================================= */
+#cursos {
+
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background-color: #fff;
+}
+
+#cursos h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+#cursos .card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.course-card {
+  width: 100%;
+  max-width: 350px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.course-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* =================================
+   TESTIMONIOS
+================================= */
+#testimonios {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background-color: #fff;
+}
+
+#testimonios h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.testimonial-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.testimonial-track {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 1rem;
+}
+
+.testimonial {
+  flex: 0 0 auto;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.testimonial img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.testimonial h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial p {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* =================================
+   SUSCRIBIRSE
+================================= */
+#suscribirse {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background-color: #fff;
+}
+
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.subscribe-form input {
+  padding: 0.8rem 1rem;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.subscribe-form button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--primary-color);
   color: #fff;
   cursor: pointer;
 }
 
-.nav-modal ul {
-  margin-top:30px;
-  list-style: none;
-  padding: 0;
-  
+/* =================================
+   CONTACTO
+================================= */
+.contact-hs{
+    text-align: center;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.contact-form input,
+.contact-form textarea {
+
+  max-width: 400px;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  align-items:center;
+  border: 1px solid #ccc;
+}
+
+.contact-form button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--primary-color);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* =================================
+   FOOTER
+================================= */
+footer {
+  padding: 2rem 1.5rem;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
   text-align: center;
 }
 
-.nav-modal ul li {
-  margin: 20px 0;
+footer .footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-.nav-modal ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 1.5rem;
-  transition: color 0.3s;
+footer .footer-top .logo {
+  width: 60px;
+  height: auto;
 }
 
-.nav-modal ul li a:hover {
-  color: rgba(244,199,200,1);
+footer .footer-top .socials {
+  display: flex;
+  gap: 1rem;
 }
 
-/* Solo mostrar modal en tablet y móvil */
+footer .footer-bottom p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+}
+
+/* =================================
+   BOTÓN FLOTANTE WHATSAPP
+================================= */
+.whatsapp-float {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+}
+
+.whatsapp-float img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* =================================
+   MEDIA QUERIES TABLET Y DESKTOP
+================================= */
 @media (min-width: 768px) {
-  .nav-modal {
-    display: none !important;
+  /* Navbar links */
+  .nav-links {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  /* Footer desktop */
+  footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  footer .footer-top {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  footer .footer-top .logo {
+    margin-left: 1rem;
+  }
+
+  footer .footer-top .socials {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  footer .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.2rem;
+  }
+
+  /* Servicios y Cursos */
+  .card-container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .card, .course-card {
+    flex: 1;
+    max-width: 300px;
+  }
+
+  /* Suscribirse horizontal */
+  .subscribe-form {
+    flex-direction: row;
+    justify-content: center;
   }
 }
 
-/* ===== HERO ===== */
-.hero {
-    width: 100%;
-    height: 600px;
-    background: url('multimedia/butterflies-8048191_1280.jpg') no-repeat center center/cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding-top: 100px;
-}
+@media (min-width: 1024px) {
+  .card-container {
+    gap: 3rem;
+  }
 
-.hero h1 {
-    font-size: 35px;
-    color: white;
-    margin-bottom: 30px;
-}
+  .card, .course-card {
+    max-width: 350px;
+  }
 
-.hero p {
-    font-size: 20px;
-    color: white;
-    margin-bottom: 40px;
-}
+  .hero h1 {
+    font-size: 3rem;
+  }
 
-.btn-primary {
-    background-color: rgba(244,199,200,1);
-    border: none;
-    padding: 12px 25px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-/* ===== SECTIONS ===== */
-.section {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.section h2 {
-    font-size: 36px;
-    margin-bottom: 40px;
-}
-
-/* ===== SERVICIOS ===== */
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin: 0 20px;
-}
-
-.card {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 300px;
-    overflow: hidden;
-    position: relative;
-}
-
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.card h3, .card p, .card h4, .card h5 {
-    padding: 0 15px;
-    margin: 10px 0;
-}
-
-.badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: rgb(108,195,180);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 12px;
-}
-
-.badge.promo {
-    right: 10px;
-    left: auto;
-    background-color: rgba(244,199,200,1);
-}
-
-/* ===== SOBRE MI ===== */
-.about-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.about-img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.about-text h2  {
-    text-align:center;
-}
-
-.about-text p{
-    text-align: center;
-    margin-left: 150px;
-    margin-right: 150px;
-    font-size: 20px;
-}
-
-/* ===== CURSOS ===== */
-.course-card {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 250px;
-    margin: 10px;
-    overflow: hidden;
-}
-
-.course-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-}
-
-.course-card h3, .course-card p {
-    padding: 10px;
-}
-
-/* ===== TESTIMONIOS ===== */
-.testimonial-slider {
-    position: relative;
-    max-width: 600px;
-    margin: 0 auto;
-    overflow: hidden;
-}
-
-.testimonial-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.testimonial {
-    min-width: 100%;
-    flex-shrink: 0;
-    text-align: center;
-    padding: 20px;
-}
-
-.testimonial img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-/* ===== SUSCRIPCION ===== */
-.subscribe-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.subscribe-form input, .subscribe-form button {
-    padding: 10px;
-    width: 250px;
-}
-
-/* ===== CONTACTO ===== */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.contact-form input, .contact-form textarea, .contact-form button {
-    width: 300px;
-    padding: 10px;
-}
-
-/* ===== FOOTER ===== */
-footer {
-    background-color: rgb(108,195,180);
-    color: white;
-    
-}
-
-.footer-top {
-    display: flex;
-    justify-content: space-between;
-    
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-}
-
-.footer-top .logo {
-    width: 150px;
-    align-items: left;
-    margin-left: 80px;
-    margin-top: 20px;
-}
-
-.footer-top .socials {
-    display: flex;
-    gap: 20px;
-    font-size: 38px;
-    align-items: center;
-}
-
-.footer-bottom {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    font-size: 14px;
-}
-
-/* ===== WHATSAPP ===== */
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 1024px) {
-    .card-container {
-        justify-content: center;
-        gap: 20px;
-    }
-    .course-card {
-        width: 45%;
-    }
-}
-
-@media (max-width: 768px) {
-    .card-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .course-card {
-        width: 80%;
-    }
-
-    .navbar {
-        padding: 0 20px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .hamburger {
-        display: none;
-    }
-
-    .close-menu {
-        display: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .brand{
-        font-size: 15px;
-    }
-    .hero h1 {
-        font-size: 25px;
-    }
-    .hero p {
-        font-size: 18px;
-    }
-    .subscribe-form input, .subscribe-form button {
-        width: 200px;
-    }
-    .contact-form input, .contact-form textarea, .contact-form button {
-        width: 200px;
-    }
-    .hero{
-        height: 550px;
-    }
-    .about-text p{
-    text-align: justify;
-    margin-left: 20px;
-    margin-right: 20px;
-    font-size: 15px;
-}
+  .hero p {
+    font-size: 1.5rem;
+  }
 }
