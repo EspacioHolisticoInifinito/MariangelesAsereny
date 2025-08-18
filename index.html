@@ -6,18 +6,11 @@
   <title>Holistico Espacio Infinito</title>
   <link rel="shortcut icon" href="multimedia/logobunpng.png" type="image/x-icon"/>
   <link rel="stylesheet" href="styles.css">
-  <script defer src="script.js"></script>
+  <script src="script.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <!--animacion inicial-->
-  <div id="intro-video">
-  <video id="video"autoplay muted>
-    <source src="multimedia/Sin título (2).mp4" type="video/mp4">
-  </video>
-  </div>
   <!--Contenido principal-->
-  <div id="main-content" style="display:none;">
   <!-- HEADER / NAVBAR -->
   <header id="header">
     <nav class="navbar">
@@ -32,16 +25,25 @@
           <li><a href="#sobremi">Sobre mí</a></li>
           <li><a href="#cursos">Cursos</a></li>
           <li><a href="#contacto">Contacto</a></li>
-        
-        </ul>
+          </ul>
         <!--iconos-->
         
         <div class="hamburger">
           <i class="fas fa-bars"></i>
-        </div>
-        <div class="close-menu"><i class="fas fa-times"></i></div>
-      </div>
-    </nav>
+          </div>
+           </nav>
+
+           <!-- MODAL PARA MOVIL/TABLET -->
+        <div class="nav-modal" id="navModal">
+          <div class="close-menu"><i class="fas fa-times"></i></div>
+      <ul class="modal-links">
+         <li><a href="#header">Inicio</a></li>
+  <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#sobremi">Sobre mí</a></li>
+    <li><a href="#cursos">Cursos</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</div>
     <div class="hero">
        
       <h1>Bienvenido a Espacio Holístico Infinito</h1>
@@ -53,64 +55,35 @@
   <!-- SERVICIOS -->
   <section id="servicios" class="section">
     <h2>Servicios</h2>
-    <div class="card-container" style="border-radius: 12px;">
+    <div class="card-container">
+      <!--CARD1-->
       <div class="card">
         <div class="card-front">
-        <!--Contenido frontal de card-->
         <div class="badge">NUEVO</div>
-         <img src="multimedia/WhatsApp Image 2025-08-17 at 01.39.49.jpeg" alt="Servicio 2">
+        <img src="multimedia/WhatsApp Image 2025-08-17 at 01.39.49.jpeg" alt="Servicio 1">
         <h3>Taller de Ceramica Esotérica</h3>
         <p>Presencial - Cupo Limitado</p>
         <h4>Fechas: Sabado 30/08/2025-06/09/2025, 15hs</h4>
         <h5>DURACION:3HS</h5>
-        
         </div>
-         
       </div>
+      <!--card2-->
       <div class="card">
         <div class="card-front">
         <div class="badge promo">PROMO</div>
          <img src="multimedia/reiky.jpg" alt="Servicio 1">
         <h3>Taller de Meditacion Individual</h3>
         <p>Presencial o a Distancia</p>
-        
+        </div>
       </div>
-      </div>
-
+      <!--CARD3-->
       <div class="card">
-         <div class="card-front">
+        <div class="card-front">
         <img src="multimedia/meditacion grupal.jpg" alt="Servicio 3">
         <h3>Taller de Meditación Grupal</h3>
         <p>Presencial</p>
-        
+        </div>
       </div>
-       </div>
-      <div class="card">
-        <div class="card-front">
-        <img src="multimedia/Péndulo-Hebreo-900x471.jpg" alt="Servicio 4">
-        <h3>Pendulo Hebreo</h3>
-        <p>A Distancia</p>
-         </div>
-      <!--Contenido de atras de card-->
-     
-      </div>
-      <div class="card">
-         <div class="card-front">
-        <img src="multimedia/tarot-3864316_1280.jpg" alt="Servicio 5">
-        <h3>Lectura de Tarot</h3>
-        <p>A Distancia. Consultar  combo mensual</p>
-        
-      </div>
-    
-      </div>
-      <div class="card">
-         <div class="card-front">
-        <img src="multimedia/a-book-2160539_1280.png" alt="Servicio 6">
-        <h3>Registros Akashicos</h3>
-        <p>A Distancia</p>
-        
-      </div>
-
     </div>
   </section>
 
@@ -119,7 +92,7 @@
     <div class="about-container">
       <img src="multimedia/foto frente.jpg" alt="Sobre mí" class="about-img">
       <div class="about-text">
-        <h2 style="text-align: center;">Sobre mí</h2>
+        <h2>Sobre mí</h2>
         <p>
           Soy Mariangeles, fundadora de Espacio Holístico Infinito. Mi objetivo es guiar a las personas hacia un camino de sanación integral, combinando técnicas ancestrales y modernas.
         </p>
@@ -134,21 +107,17 @@
       <div class="course-card">
         <img src="multimedia/yoga.jpg" alt="Curso 1">
         <h3>Iniciacion a Reiky</h3>
-        <p>Presencial - A Distancia</p>
-        
-     
+        <p>Presencial - A Distancia</p>    
       </div>
       <div class="course-card">
         <img src="multimedia/buda.jpg" alt="Curso 2">
         <h3>Taller de Meditacion</h3>
         <p>Presencial</p>
-      
-      </div>
+        </div>
       <div class="course-card">
         <img src="multimedia/mar.png" alt="Curso 3">
         <h3>Taller de Tarot</h3>
         <p>A distancia</p>
-    
       </div>
     </div>
   </section>
@@ -179,6 +148,16 @@
     </div>
   </section>
 
+ <!-- SUSCRIBIRSE -->
+<section id="suscribirse" class="section subscribe">
+  <h2>Suscribirse</h2>
+  <p>Recibí nuestras novedades y promociones directamente en tu correo.</p>
+  <form class="subscribe-form">
+    <input type="email" placeholder="Ingresá tu email" required>
+    <button type="submit" class="btn-primary">Suscribirse</button>
+  </form>
+</section>
+
   <!-- CONTACTO -->
   <section id="contacto" class="section contact">
     <h2>Contacto</h2>
@@ -199,7 +178,6 @@
       <img src="multimedia/logobunpng.png" alt="Logo" class="logo">
       <div class="socials">
         <a href="https://instagram.com/holisticoespacioinfinito" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
         <a href="https://wa.me/5491158955202" target="_blank"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
@@ -209,16 +187,6 @@
       <p>Todos los derechos reservados © 2025 - <span> Producido por <a href="https://claudiagardenes.github.io" style="text-decoration: none;">CGDesign</a></span></p>
     </div>
   </footer>
-
-  <!-- MODAL CARRITO -->
-  <div id="cart-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Tu Carrito</h2>
-      <ul id="cart-items"></ul>
-      <button id="checkout-btn" class="btn-primary">Comprar Carrito</button>
-    </div>
-  </div>
-  </div>
+ 
 </body>
 </html>
