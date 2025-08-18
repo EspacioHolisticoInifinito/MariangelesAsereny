@@ -82,7 +82,7 @@ a {
 }
 
 .hamburger {
-  display: flex;
+  display: block;
   font-size: 2rem;
   cursor: pointer;
   color: #000;
@@ -112,9 +112,7 @@ a {
   z-index: 9999;
 }
 
-.nav-modal.active {
-  display: flex;
-}
+
 
 .nav-modal .close-menu {
   align-self: center;
