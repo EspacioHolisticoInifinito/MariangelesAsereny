@@ -106,7 +106,7 @@ header {
 
 /* HAMBURGER */
 .hamburger {
-  display: flex;
+  display: block;
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -125,6 +125,7 @@ header {
   padding: 20px;
   display: none;
   flex-direction: column;
+  display:none;
 }
 
 .nav-modal.active {
@@ -164,7 +165,7 @@ header {
 
 .hero h1 {
   font-size: 2.5rem;
-  margin-top: 60px;
+  margin-top: 70px;
 }
 
 .hero p {
@@ -407,6 +408,10 @@ footer a {
   .hero {
     padding: 60px 15px;
   }
+  .hero h1 {
+  font-size: 2.5rem;
+  text-align: center;
+}
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -417,6 +422,17 @@ footer a {
 
   .about-container {
     flex-wrap: nowrap;
+  }
+  .hamburger {
+    display:none;
+  }  
+  .hero  {
+  
+  text-align: center;
+  align-items: center;
+}
+   .nav-links {
+    display: flex;
   }
 }
 
@@ -432,5 +448,11 @@ footer a {
 
   .hero p {
     font-size: 1.5rem;
+  }
+   .hamburger {
+    display:none;
+  }
+   .nav-links {
+    display: flex;
   }
 }
