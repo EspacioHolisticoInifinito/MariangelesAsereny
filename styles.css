@@ -2,8 +2,8 @@
    VARIABLES DE COLOR
 ========================== */
 :root {
-  --verde: rgb(107,190,172);
-  --rosa: rgb(231,202,203);
+  --verde: rgb(108,195,180);
+  --rosa: rgba(244,199,200,255);
   --texto: #333;
   --blanco: #fff;
 }
