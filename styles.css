@@ -396,11 +396,11 @@ footer {
     }
 
     .hamburger {
-        display: block;
+        display: none;
     }
 
     .close-menu {
-        display: block;
+        display: none;
     }
 }
 
